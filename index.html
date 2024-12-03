@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Manrope:wght@200..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+</head>
+<body>
+  <div class="container">
+    <div class="layout-one">
+      <h1 class="title">Learn to code by<br>watching others</h1>
+      <p class="subtitle">See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
+    </div>
+    <div class="layout-two">
+      <p class="free-trial-title"><b>Try it free 7 days</b> then $20/mo. thereafter</p>
+      <div class="form-card">
+        <form action="" id="free-trial" class="free-trial-details">
+          <div class="text-field">
+            <input type="text" class="input-details" id="fname" placeholder="First Name"/><br>
+            <img class="error-icon" id="error-icon-one" src="./images/icon-error.svg">
+            <p class="error-message" id="error-message-one">First name cannot be empty</p>
+          </div>
+          <div class="text-field">
+            <input type="text" class="input-details" id="lname" placeholder="Last Name"/><br>
+            <img class="error-icon" id="error-icon-two" src="./images/icon-error.svg">
+            <p class="error-message" id="error-message-two">Second name cannot be empty</p>
+          </div>
+          <div class="text-field">
+            <input type="email" class="input-details" id="email" placeholder="Email Address"/><br>
+            <img class="error-icon" id="error-icon-three" src="./images/icon-error.svg">
+            <p class="error-message" id="error-message-three">Looks like this is not an email</p>
+          </div>
+          <div class="text-field">
+            <input type="password" class="input-details" id="password" placeholder="Password"/><br>
+            <img class="error-icon" id="error-icon-four" src="./images/icon-error.svg">
+            <p class="error-message" id="error-message-four">Password cannot be empty</p>
+          </div>
+        </form>
+        <button id="submit">Claim your free trial</button>
+        <p id="terms" class="terms-conditions">By clicking the button, you are agreeing to our <span>Terms and Services</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let firstName = document.getElementById("fname");
+    let lastName = document.getElementById("lname");
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let submitButton = document.getElementById("submit");
+
+    const errorMessage = document.querySelectorAll(".error-message");
+    const errorIcon = document.querySelectorAll(".error-icon");
+
+    for (let x of errorMessage) {
+      x.style.display = "none";
+    }
+
+    for (let i of errorIcon) {
+      i.style.display = "none";
+    }
+
+    submitButton.onclick = validateFields ;
+
+    function validateFields() {
+      checkFirstName();
+      checkLastName();
+      checkEmail();
+      checkPassword();
+    }
+
+    function checkFirstName() {
+      if (firstName.value == "") {
+        errorMessage[0].style.display = "block";
+        errorIcon[0].style.display = "block";
+        firstName.style.borderColor = "hsl(0, 100%, 74%)";
+      } else {
+        errorMessage[0].style.display = "none";
+        errorIcon[0].style.display = "none";
+        firstName.style.borderColor = "hsl(246, 25%, 77%)";
+      }
+    }
+
+    function checkLastName() {
+      if (lastName.value == "") {
+        errorMessage[1].style.display = "block";
+        errorIcon[1].style.display = "block";
+        lastName.style.borderColor = "hsl(0, 100%, 74%)";
+      } else {
+        errorMessage[1].style.display = "none";
+        errorIcon[1].style.display = "none";
+        lastName.style.borderColor = "hsl(246, 25%, 77%)";
+      }
+    }
+
+    function checkEmail() {
+      const regEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+      if (regEx.test(email.value) == false) {
+        errorMessage[2].style.display = "block";
+        errorIcon[2].style.display = "block";
+        email.style.borderColor = "hsl(0, 100%, 74%)";
+      } else {
+        errorMessage[2].style.display = "none";
+        errorIcon[2].style.display = "none";
+        email.style.borderColor = "hsl(246, 25%, 77%)";
+      } 
+    }
+
+    function checkPassword() {
+      if (password.value == "") {
+        errorMessage[3].style.display = "block";
+        errorIcon[3].style.display = "block";
+        password.style.borderColor = "hsl(0, 100%, 74%)";
+      } else {
+        errorMessage[3].style.display = "none";
+        errorIcon[3].style.display = "none";
+        password.style.borderColor = "hsl(246, 25%, 77%)";
+      }
+    }
+  </script>
+</body>
+</html>
