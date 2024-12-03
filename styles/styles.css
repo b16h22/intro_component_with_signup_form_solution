@@ -164,7 +164,7 @@
       /* Text */
 
       .title {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
       .subtitle {
@@ -174,12 +174,12 @@
       }
 
       .free-trial-title {
-        padding-inline: 6rem;
+        padding-inline: 3rem;
       }
       
       .terms-conditions {
         font-size: 0.8rem;
-        padding-inline: 1.5rem;
+        padding-inline: 1rem;
       }
 
     }
