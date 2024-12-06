@@ -67,11 +67,25 @@ Learned to use For Of loop on the nodelist accessed by querySelecterAll() method
 
 Learned to validate if text input fields are empty and display an error message.
 
+```js
+    function checkEmail() {
+      if (email.validity.valueMissing || email.validity.typeMismatch) {
+        errorMessage[2].style.display = "block";
+        errorIcon[2].style.display = "block";
+        email.style.borderColor = "hsl(0, 100%, 74%)";
+      } else {
+        errorMessage[2].style.display = "none";
+        errorIcon[2].style.display = "none";
+        email.style.borderColor = "hsl(246, 25%, 77%)";
+      } 
+    }
+```
+
 ### Useful resources
 
 - [HTML DOM Elements](https://www.w3schools.com/js/js_htmldom_elements.asp) - This helped me learn about HTML DOM elements and methods to access them.
 - [JS For Of loop](https://www.w3schools.com/js/js_loop_forof.asp) - This helped me learn about JS For Of loop.
-- [RegEx for Email Validation](https://zparacha.com/validate-email-address-using-javascript-regular-expression) - This helped me understand the regEx required for email validation.
+- [Email Validation](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState) - This helped me understand the validitystate API for validating Email and other input fields.
 
 ## Author
 
